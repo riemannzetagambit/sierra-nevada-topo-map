@@ -1,0 +1,76 @@
+# ============================================================
+# Sierra Nevada Topo Map — .gitignore
+# Default: exclude everything except documented source files
+# ============================================================
+
+# --- Raster data (large) ---
+*.tif
+*.tiff
+*.img
+*.vrt
+
+# --- Vector data (large) ---
+*.gpkg
+*.shp
+*.dbf
+*.shx
+*.prj
+*.qpj
+*.cpg
+
+# --- Downloaded archives ---
+*.zip
+*.gz
+*.tar
+
+# --- QGIS project files (exclude unless you want to share them) ---
+*.qgs
+*.qgz
+*.qgd
+
+# --- QGIS auxiliary storage (label pins, etc.) ---
+*.qgd
+
+# --- Raw NHD, TIGER, GNIS download folders ---
+DomesticNames_CA_Text/
+geotiffs/
+shapefiles_geopackages/
+sierra_basemap_output/
+
+# --- Intermediate/temp files ---
+_temp_*
+*.bak
+*.log
+
+# --- Print exports (large PDF proofs) ---
+*.pdf
+
+# --- QGIS auxiliary model files ---
+*.qmd
+
+# --- Cowork/AI session meta files ---
+claude.md
+
+# --- Symbol libraries ---
+symbols/
+
+# --- macOS noise ---
+.DS_Store
+__MACOSX/
+
+# --- Python cache ---
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# ============================================================
+# DO include: README, scripts, style files, custom CSV layers
+# ============================================================
+# (Git includes everything not listed above)
+# Explicitly tracked:
+#   README.md
+#   scripts/sierra_basemap_generation.py
+#   custom_peaks_list.csv
+#   minor_peaks_list.csv (if present)
+#   styles/*.qml (if exported)
