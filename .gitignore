@@ -34,8 +34,20 @@
 # --- Raw NHD, TIGER, GNIS download folders ---
 DomesticNames_CA_Text/
 geotiffs/
-shapefiles_geopackages/
 sierra_basemap_output/
+
+# --- Downloaded (non-custom) shapefiles/geopackages ---
+shapefiles_geopackages/bodies_of_water/
+shapefiles_geopackages/roads/
+
+# --- Allow custom shapefiles in topographic_features/ ---
+!shapefiles_geopackages/
+!shapefiles_geopackages/topographic_features/
+!shapefiles_geopackages/topographic_features/*.shp
+!shapefiles_geopackages/topographic_features/*.dbf
+!shapefiles_geopackages/topographic_features/*.shx
+!shapefiles_geopackages/topographic_features/*.prj
+!shapefiles_geopackages/topographic_features/*.cpg
 
 # --- Intermediate/temp files ---
 _temp_*
