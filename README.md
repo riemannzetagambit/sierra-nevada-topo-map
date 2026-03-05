@@ -1,13 +1,16 @@
 # Sierra Nevada Topographic Wall Map
 
-A large-format custom topographic wall map of the Sierra Nevada from Leavitt Meadows to the Golden Trout Wilderness — roughly 170 miles north–south by 70 miles east–west — built entirely in QGIS using publicly available data sources.
+A large-format custom topographic wall map of the Sierra Nevada from Leavitt Meadows to the Golden Trout Wilderness — roughly 170 miles north–south by 70 miles east–west — built entirely in QGIS using publicly available data sources. A substack post explaining the motivation for this particular incarnation of a Sierra Nevada topo, given the myriad existing maps out there, is [here]().
 
-**Print dimensions:** 24"×60" (1:220,000) or 36"×86" (1:150,000)
+
+The high level map properties, as designed for print, are:
+**Print dimensions:** 24"×60" (1:200,000) or 36"×86" (1:150,000)
 **Map rotation:** 30° from North (aligns the range axis vertically)
 **Coordinate system:** EPSG:4326 (WGS 84)
 **Bounding box:** 36.05°N – 38.80°N, 120.25°W – 117.50°W
 
-> This README was written with the assistance of [Claude](https://claude.ai) (Anthropic).
+> This README was written with the assistance of [Claude](https://claude.ai) (Anthropic) after giving it extensive
+> instructions for how to parse the chats that guided me in creating the map. It has been QCed by human eyes.
 
 ---
 
@@ -25,7 +28,10 @@ A large-format custom topographic wall map of the Sierra Nevada from Leavitt Mea
 
 ### Downloaded Data
 
-These are external datasets downloaded from public sources. They are not included in this repo due to size.
+These are external datasets downloaded from public sources. 
+Some data are not included in this repo due to size (e.g. the geotiffs for the basemap, explicit shapefiles or geopackages identical to public sources, etc), 
+**however**, a complete replica of the data (frozen for posterity's sake) is maintained on S3 at:
+`s3://david-curtis-stone/sierra-nevada-topo-map/`
 
 | Layer | Source | Download Link | What to Download | QGIS Import Notes | Filters Used | Layer Properties / Notes |
 |---|---|---|---|---|---|---|
@@ -257,7 +263,7 @@ Tinting is graduated by elevation: full strength below ~7,000 ft (2,130m), linea
 | Setting | Value |
 |---|---|
 | Page size | 24"×60" or 36"×86" |
-| Scale | 1:220,000 (2'×5') or 1:150,000 (3'×7') |
+| Scale | 1:200,000 (2'×5') or 1:150,000 (3'×7') |
 | Map rotation | 30° from North |
 | Print resolution | 300 DPI |
 | Proofing resolution | 150 DPI |
