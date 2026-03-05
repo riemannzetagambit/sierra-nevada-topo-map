@@ -18,8 +18,10 @@ The high level map properties, as designed for print, are:<br>
 **Coordinate system:** EPSG:4326 (WGS 84)<br>
 **Bounding box:** 36.05°N – 38.80°N, 120.25°W – 117.50°W<br>
 
-> This README was written with the assistance of [Claude](https://claude.ai) (Anthropic) after giving it extensive
-> instructions for how to parse the chats that guided me in creating the map. It has been QCed by human eyes.
+> The rest of this README was written with the assistance of [Claude](https://claude.ai) (Anthropic) after giving it extensive
+> instructions for how to parse the chats that guided me in creating the map.
+> It was helpful for sorting out all the menial details I worked through over the iterations.
+> The details below have been QCed by human eyes.
 
 ---
 
