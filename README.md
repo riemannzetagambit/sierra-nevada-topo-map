@@ -3,11 +3,11 @@
 A large-format custom topographic wall map of the Sierra Nevada from Leavitt Meadows to the Golden Trout Wilderness — roughly 170 miles north–south by 70 miles east–west — built entirely in QGIS using publicly available data sources. A substack post explaining the motivation for this particular incarnation of a Sierra Nevada topo, given the myriad existing maps out there, is [here]().
 
 
-The high level map properties, as designed for print, are:
-**Print dimensions:** 24"×60" (1:200,000) or 36"×86" (1:150,000)
-**Map rotation:** 30° from North (aligns the range axis vertically)
-**Coordinate system:** EPSG:4326 (WGS 84)
-**Bounding box:** 36.05°N – 38.80°N, 120.25°W – 117.50°W
+The high level map properties, as designed for print, are:<br>
+**Print dimensions:** 24"×60" (1:200,000) or 36"×86" (1:150,000)<br>
+**Map rotation:** 30° from North (aligns the range axis vertically)<br>
+**Coordinate system:** EPSG:4326 (WGS 84)<br>
+**Bounding box:** 36.05°N – 38.80°N, 120.25°W – 117.50°W<br>
 
 > This README was written with the assistance of [Claude](https://claude.ai) (Anthropic) after giving it extensive
 > instructions for how to parse the chats that guided me in creating the map. It has been QCed by human eyes.
@@ -28,9 +28,9 @@ The high level map properties, as designed for print, are:
 
 ### Downloaded Data
 
-These are external datasets downloaded from public sources. 
+These are external datasets downloaded from public sources. <br>
 Some data are not included in this repo due to size (e.g. the geotiffs for the basemap, explicit shapefiles or geopackages identical to public sources, etc), 
-**however**, a complete replica of the data (frozen for posterity's sake) is maintained on S3 at:
+**however**, a complete replica of the data (frozen for posterity's sake) is maintained on S3 at:<br>
 `s3://david-curtis-stone/sierra-nevada-topo-map/`
 
 | Layer | Source | Download Link | What to Download | QGIS Import Notes | Filters Used | Layer Properties / Notes |
@@ -41,7 +41,7 @@ Some data are not included in this repo due to size (e.g. the geotiffs for the b
 | **Passes — Tier 1 (Highway)** | USGS GNIS | (same file) | (same file) | (same import) | `feature_class = 'Gap'`; manually split: Sonora, Tioga, Ebbetts, Carson, Monitor | Palatino Bold, 1500 map units, `#395734` (dark green); cross marker size 10 |
 | **Passes — Tier 2 (JMT/PCT)** | USGS GNIS | (same file) | (same file) | (same import) | `feature_class = 'Gap'`; Donohue, Island, Silver, Selden, Muir, Mather, Pinchot, Glen, Forester, Cottonwood | Palatino Bold, 750 map units, `#395734`; cross marker size 3 |
 | **Passes — Tier 3 (East Side)** | USGS GNIS | (same file) | (same file) | (same import) | `feature_class = 'Gap'`; Kearsarge, Bishop, Piute, Mono, McGee, Shepherd, Army, Taboose, Sawmill, Baxter | Palatino Bold, 750 map units, `#395734`; cross marker size 3 |
-| **Summits — Major (~60 peaks)** | USGS GNIS | (same file) | (same file) | (same import) | `feature_class = 'Summit'`; bounding box `prim_lat_dec BETWEEN 36.05 AND 38.80`, `prim_long_dec BETWEEN -120.25 AND -117.90`; hand-curated list of ~60 most significant summits | Palatino Regular, 20pt, `#000000`; black triangle size 7; elevations shown |
+| **Summits — Major (15-20 peaks)** | USGS GNIS | (same file) | (same file) | (same import) | `feature_class = 'Summit'`; bounding box `prim_lat_dec BETWEEN 36.05 AND 38.80`, `prim_long_dec BETWEEN -120.25 AND -117.90`; hand-curated and highly subjective list of 15-20 most significant summits | Palatino Regular, 20pt, `#000000`; black triangle size 7; elevations shown |
 | **Summits — Notable** | USGS GNIS | (same file) | (same file) | (same import) | Same bounding box; secondary tier peaks excluded from Major layer | Palatino Regular, 14pt, `#2d2d2d`; dark gray triangle size 4 |
 | **Summits — All** | USGS GNIS | (same file) | (same file) | (same import) | Same bounding box; remaining summits with name + `feature_id` exclusion list to remove clutter and duplicates (e.g. `feature_id NOT IN (268341, 267671)` for duplicate Mt Tom / Mt Stanford) | Palatino Regular, 2.75mm, `#4a4a4a`; gray triangle size 2; one tier per peak via exclusion filters |
 | **State & Federal Roads** | US Census TIGER/Line | [TIGER Roads Download](https://www.census.gov/cgi-bin/geo/shapefiles/index.php) | Select "All Roads" by county: **Fresno, Inyo, Madera, Mono, Tulare, Tuolumne** | Add Vector Layer | `"RTTYP" IN ('S', 'U')` for state and US routes | Open Sans Bold, 4mm, `#a47158`; line `#a47158` width 0.75mm; buffer 0.5 near-white; label expression: `'CA-' \|\| replace("FULLNAME", 'State Rte ', '')` |
@@ -61,14 +61,14 @@ These are hand-created layers included in `shapefiles_geopackages/topographic_fe
 | Layer | Files | Description | Layer Properties / Notes |
 |---|---|---|---|
 | **National Park Names** | `national_park_names.*` | Hand-digitized point/polygon layer for Yosemite, Sequoia, Kings Canyon, Devils Postpile | Palatino Bold, 20pt, `#264224` (dark forest green); wrap char `\|` |
-| **Wilderness Names — Major** | `major_wilderness_names.*` | Major wilderness areas: Yosemite, Emigrant, Ansel Adams, Hoover, Mokelumne, Muir, Sequoia–Kings Canyon, Golden Trout, South Sierra, etc. | Palatino Bold, 14pt, `#7f2b0a` (rusty brown); wrap char `\|` |
-| **Wilderness Names — Minor** | `minor_wilderness_names.*` | Smaller or less prominent wilderness areas including Dinkey Lakes, Jenny Lakes, Monarch, etc. | Palatino Bold, 8pt, `#7f2b0a`; wrap char `\|` |
+| **Wilderness Names — Major** | `major_wilderness_names.*` | Major wilderness areas: Emigrant, Yosemite, Ansel Adams, Muir, Sequoia–Kings Canyon | Palatino Bold, 14pt, `#7f2b0a` (rusty brown); wrap char `\|` |
+| **Wilderness Names — Minor** | `minor_wilderness_names.*` | Smaller or less prominent wilderness areas: Hoover, Kaiser, Dinkey Lakes, Jennie Lakes, Monarch, Golden Trout, etc. | Palatino Bold, 8pt, `#7f2b0a`; wrap char `\|` |
 | **Valleys/Meadows/Canyons/Basins — Major** | `major_basins_valleys_meadows_canyons.*` | Major named features custom-placed for better positioning than GNIS coordinates | Palatino Bold, 14pt, `#442314` (dark brown); wrap char `\|` |
 | **Valleys/Meadows/Canyons/Basins — Minor** | `minor_basins_valleys_meadows_canyons.*` | Secondary named features | Palatino Bold, 3.5mm, `#442314`; wrap char `\|` |
 | **Sierra Subranges and Divides** | `sierra_ranges_and_divides.*` | LineString layer (EPSG:4326) with named ranges and divides: Cathedral Range, Clark Range, Ritter Range, Sawtooth Ridge, Silver Divide, Mono Divide, Le Conte Divide, Goddard Divide, White Divide, Black Divide, The Palisades, Monarch Divide, Great Western Divide, Kings-Kaweah Divide, Kings-Kern Divide | Adobe Caslon Pro Bold, 16pt, `#462e0c` (dark chocolate); curved placement along line; red guide line `#ff0010` 0.26mm |
-| **Sierra Crests** | `crests.*` | Custom point or line layer for named crests | Adobe Caslon Pro Bold, 1000 map units, `#4e4e4e`; wrap char `\|` |
-| **The Lake of Power** | `the_lake_of_power.*` | Custom feature | Palatino Regular, 2mm, `#2b5a8a`; wrap char `\|` |
-| **Custom Peak Names** | `custom_peaks_list.csv` | Climbing objectives not in GNIS: Venacher Needle, Mt Bandaloop, Adair Buttress, The Bowmaiden, Saber Ridge, The Obelisk, Kettle Dome, Silver Turret, Cobra Turret, Oyster Peak, Whaleback, The Minarets | Palatino Regular, 2.75mm, `#4a4a4a`; gray triangle size 2. CSV import: comma delimiter, `longitude` as X, `latitude` as Y, EPSG:4326. "The Minarets" replaces the GNIS entry for better label placement. |
+| **Sierra Crests** | `crests.*` | Custom point or line layer for named crests (e.g. Sawtooth Ridge, Saurian Crest, Wheeler Crest, etc) | Adobe Caslon Pro Bold, 1000 map units, `#4e4e4e`; wrap char `\|` |
+| **The Lake of Power** | `the_lake_of_power.*` | Custom feature | Palatino Regular, 2mm, `#2b5a8a`; wrap char `\|`. If you know, you know. |
+| **Custom Peak Names** | `custom_peaks_list.csv` | Climbing objectives not in GNIS: Venacher Needle, Mt Bandaloop, Adair Buttress, The Bowmaiden, Saber Ridge, The Obelisk, Kettle Dome, Silver Turret, Cobra Turret, Oyster Peak, Whaleback | Palatino Regular, 2.75mm, `#4a4a4a`; gray triangle size 2. CSV import: comma delimiter, `longitude` as X, `latitude` as Y, EPSG:4326. "The Minarets" replaces the GNIS entry for better label placement. |
 
 ---
 
@@ -101,9 +101,9 @@ These are hand-created layers included in `shapefiles_geopackages/topographic_fe
 
 ### Key Organizational Decisions
 
-**River label/display split.** NHDFlowLine data is duplicated per HUC. The original layer handles symbology only (labels off). A copy dissolved on `gnis_name` handles labels only (symbology off). Without dissolving, rivers whose geometry is split into dozens of segments (common in NHD) produce duplicate floating labels. The dissolved copy gives QGIS a single geometry per named river to anchor one label to.
+**River label/display split.** NHDFlowLine data is duplicated per HUC. The original layer handles symbology only (labels off). This let me filter rivers in a consistent manner before doing any dissolving, but was a nightmare for labels. A copy dissolved on `gnis_name` handles labels only (symbology off). Without dissolving, rivers whose geometry is split into dozens of segments (common in NHD) produce duplicate floating labels. The dissolved copy gives QGIS a single geometry per named river to anchor one label to.
 
-**Three-tier peak layers.** Separate layers for major, notable, and all peaks allow different symbol sizes, triangle styles, and label styling without complex data-defined overrides across hundreds of features. Features are assigned to exactly one layer via filter exclusion lists.
+**Three-tier peak layers.** Separate layers for major, notable, and all other peaks allow different symbol sizes, triangle styles, and label styling without complex data-defined overrides across hundreds of features. Features are assigned to exactly one layer via filter exclusion lists.
 
 **Three-tier pass layers.** Same rationale as peaks: Tier 1 highway passes get very large labels; Tier 2 JMT/PCT passes get large labels; Tier 3 east-side passes get medium labels.
 
@@ -111,9 +111,7 @@ These are hand-created layers included in `shapefiles_geopackages/topographic_fe
 
 **Label rotation for tilted layout.** The map is rotated ~30° from north. Labels use a data-defined rotation of `@map_rotation * -1` to stay horizontal in the printed layout.
 
-**Lake obstacle setting.** Lake polygons are flagged as label obstacles, preventing river and stream labels from being placed inside lake boundaries (e.g., prevents a label from floating inside Simpson Meadow reservoir).
-
-**Blend mode rendering caveat.** The hillshade layer uses Multiply blend mode at ~45% opacity over hypsometric tints. Blend modes may not render correctly in PDF export from QGIS. Export as raster (TIFF or PNG at 300 DPI) or pre-render the blended base as a GeoTIFF using the included Python script.
+**Lake obstacle setting.** Lake polygons are flagged as label obstacles, preventing river and stream labels from being placed inside lake boundaries.
 
 **QGIS auxiliary storage for label pinning.** Individual labels can be manually dragged to a better position using QGIS's label pin tool. This writes position offsets to the layer's auxiliary storage. If labels stop responding to drag, check that `auxiliary_storage_labeling_positionx` and `_positiony` are not set in the label placement data-defined properties — clear those fields to re-enable interactive pinning.
 
@@ -229,7 +227,10 @@ Tinting is graduated by elevation: full strength below ~7,000 ft (2,130m), linea
 
 ## Aesthetics and Styling
 
-*Extracted from the QGIS project file.*
+I tried to match the styling I felt fuzzy warm feelings for from Tom Harrison or National Geographic Maps for various sectors of the Sierra.
+The choices below were influenced by what I've been inured to in stressful situations figuring out where the hell I was in some backcountry off-trail canyon, 
+but ultimately may deviate from exact standards. The font styles and kerning overall are an homage to those maps and feel fitting for the subject matter.
+*Exact values below were extracted from the QGIS project file.*
 
 ### Per-Layer Typography and Symbology
 
