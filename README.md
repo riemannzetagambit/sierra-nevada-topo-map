@@ -1,10 +1,19 @@
 # Sierra Nevada Topographic Wall Map
 
-A large-format custom topographic wall map of the Sierra Nevada from Leavitt Meadows to the Golden Trout Wilderness — roughly 170 miles north–south by 70 miles east–west — built entirely in QGIS using publicly available data sources. A substack post explaining the motivation for this particular incarnation of a Sierra Nevada topo, given the myriad existing maps out there, is [here]().
+A large-format custom topographic wall map of the Sierra Nevada from Leavitt Meadows to the Golden Trout Wilderness — roughly 170 miles north–south by 70 miles east–west — built entirely in QGIS using publicly available data sources. This map is designed for a large print size of 2'x5.35' and is rotated from true north to align the y-axis of the map along the Sierra Crest's predominant NNW-SSE trend.
 
+This repo maintains, for my own sanity and for posterity's sake, a record of all the specific techical and aesthetic choices I made in constructing this map from scratch. It is heavy on details and thorough.
+
+Meanwhile, a substack post explaining the emotional motivation and choices (e.g. why is this peak highlighted or why did you exclude this basin) for this particular incarnation of a Sierra Nevada topo, given the plethora of existing maps out there, is [here]().
+
+Here's an exemplary section of the map illustrating style choices made below:<br>
+<img width="1123" height="533" alt="image" src="https://github.com/user-attachments/assets/255c57c1-6209-43ae-981e-ad6724b7d21d" />
+
+While the whole map in proportion ends up looking like this:<br>
+<img width="100" height="269" alt="image" src="https://github.com/user-attachments/assets/1be2c8d7-2369-4088-855a-1f20e486e196" />
 
 The high level map properties, as designed for print, are:<br>
-**Print dimensions:** 24"×60" (1:200,000) or 36"×86" (1:150,000)<br>
+**Print dimensions:** 24"×64.2" (1:200,000)
 **Map rotation:** 30° from North (aligns the range axis vertically)<br>
 **Coordinate system:** EPSG:4326 (WGS 84)<br>
 **Bounding box:** 36.05°N – 38.80°N, 120.25°W – 117.50°W<br>
@@ -26,12 +35,15 @@ The high level map properties, as designed for print, are:<br>
 
 ## Data Sources
 
-### Downloaded Data
+### Mirror of all data used for map
 
-These are external datasets downloaded from public sources. <br>
-Some data are not included in this repo due to size (e.g. the geotiffs for the basemap, explicit shapefiles or geopackages identical to public sources, etc), 
+Most data used in producing the map are not included in this repo due to size (e.g. the geotiffs for the basemap, explicit shapefiles or geopackages identical to public sources, etc), 
 **however**, a complete replica of the data (frozen for posterity's sake) is maintained on S3 at:<br>
 `s3://david-curtis-stone/sierra-nevada-topo-map/`
+
+### Downloaded Data
+
+These are external datasets downloaded from public sources.
 
 | Layer | Source | Download Link | What to Download | QGIS Import Notes | Filters Used | Layer Properties / Notes |
 |---|---|---|---|---|---|---|
@@ -264,7 +276,7 @@ but ultimately may deviate from exact standards. The font styles and kerning ove
 | Setting | Value |
 |---|---|
 | Page size | 24"×60" or 36"×86" |
-| Scale | 1:200,000 (2'×5') or 1:150,000 (3'×7') |
+| Scale | 1:200,000 (2'×5.35') |
 | Map rotation | 30° from North |
 | Print resolution | 300 DPI |
 | Proofing resolution | 150 DPI |
