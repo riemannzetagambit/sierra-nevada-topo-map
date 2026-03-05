@@ -13,7 +13,7 @@ While the whole map in proportion ends up looking like this:<br>
 <img width="100" height="269" alt="image" src="https://github.com/user-attachments/assets/1be2c8d7-2369-4088-855a-1f20e486e196" />
 
 The high level map properties, as designed for print, are:<br>
-**Print dimensions:** 24"×64.2" (1:200,000)
+**Print dimensions:** 24"×64.2" (1:200,000)<br>
 **Map rotation:** 30° from North (aligns the range axis vertically)<br>
 **Coordinate system:** EPSG:4326 (WGS 84)<br>
 **Bounding box:** 36.05°N – 38.80°N, 120.25°W – 117.50°W<br>
