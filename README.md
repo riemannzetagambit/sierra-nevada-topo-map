@@ -43,6 +43,10 @@ Most data used in producing the map are not included in this repo due to size (e
 **however**, a complete replica of the data (frozen for posterity's sake) is maintained on S3 at:<br>
 `s3://david-curtis-stone/sierra-nevada-topo-map/`
 
+The contents can be accessed through a webpage GUI here: https://david-curtis-stone.s3.us-west-1.amazonaws.com/sierra-nevada-topo-map/index.html.
+
+You can find proofs of the map there, and are welcome to use them under the license in this repository.
+
 ### Downloaded Data
 
 These are external datasets downloaded from public sources.

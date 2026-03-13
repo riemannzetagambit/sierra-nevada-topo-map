@@ -86,3 +86,4 @@ __pycache__/
 #   custom_peaks_list.csv
 #   minor_peaks_list.csv (if present)
 #   styles/*.qml (if exported)
+s3_bucket_policy.json
